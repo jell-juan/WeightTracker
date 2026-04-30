@@ -23,4 +23,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run script
+        env:
+          Bearer: ${{ secrets.Bearer }}
+          ENDPOINT: ${{ secrets.ENDPOINT }}
+          PIXELA_USERNAME: ${{ secrets.PIXELA_USERNAME }}
+          PIXELA_TOKEN: ${{ secrets.PIXELA_TOKEN }}
         run: python main.py
