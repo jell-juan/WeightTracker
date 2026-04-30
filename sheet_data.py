@@ -6,7 +6,7 @@ dotenv.load_dotenv()
 
 #this file is responsible for getting latest data from the google sheet 
 
-BEARER = f"Bearer {os.getenv("Bearer")}"
+BEARER = f"Bearer {os.getenv('Bearer')}"
 
 class DataManager:
     def __init__(self):
