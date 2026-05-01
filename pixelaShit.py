@@ -10,7 +10,7 @@ dotenv.load_dotenv()
 
 
 
-#"""https://pixe.la/v1/users/fatboi123/graphs/graphweight"""
+#"""https://pixe.la/v1/users/fatboi123/graphs/graphweight.html"""
 
 
 
@@ -65,7 +65,12 @@ def sendData(data):
         "date" : formatted_date,
     }
 
-    pixel = requests.post(url=PIXEL_ENDPOINT, json= params, headers= header)
+    worked = False
+    while worked == False:
+        pixel = requests.post(url=PIXEL_ENDPOINT, json= params, headers= header)
+        tmep = pixel.json()
+        worked = tmep["isRejected"]
+
     if pixel.text == 200:
         print("success")
     else:
