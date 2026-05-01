@@ -72,7 +72,7 @@ def sendData(data):
         worked = tmep["isRejected"]
 
     if pixel.text == 200:
-        print("success")
+        return("Pixel was added successfully")
     else:
         print(pixel.text)
 
