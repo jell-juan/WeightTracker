@@ -2,8 +2,8 @@ name: Run Python Script Daily
 
 on:
   schedule:
-    - cron: '30 10 * * *'  # 4:00 PM IST (10:30 AM UTC)
-  workflow_dispatch: # allows manual run button
+    - cron: '30 10 * * *'   # 4:00 PM IST (10:30 AM UTC)
+  workflow_dispatch:
 
 jobs:
   run-script:
@@ -19,8 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Run script
         env:
@@ -28,4 +27,8 @@ jobs:
           ENDPOINT: ${{ secrets.ENDPOINT }}
           PIXELA_USERNAME: ${{ secrets.PIXELA_USERNAME }}
           PIXELA_TOKEN: ${{ secrets.PIXELA_TOKEN }}
+          TO_NUM: ${{ secrets.TO_NUM }}
+          FROM_NUM: ${{ secrets.FROM_NUM }}
+          TWI_AUTH: ${{ secrets.TWI_AUTH }}
+          SID: ${{ secrets.SID }}
         run: python main.py
