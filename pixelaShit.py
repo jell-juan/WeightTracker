@@ -69,7 +69,7 @@ def sendData(data):
     while worked == False:
         pixel = requests.post(url=PIXEL_ENDPOINT, json= params, headers= header)
         tmep = pixel.json()
-        worked = tmep["isRejected"]
+        worked = tmep.get("isRejected")
 
     if pixel.text == 200:
         return("Pixel was added successfully")
