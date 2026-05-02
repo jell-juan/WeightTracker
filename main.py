@@ -8,5 +8,5 @@ final_data = data["weightTracker"]
 
 result = sendData(data= final_data)
 
-nm = notification(text=result)
+nm = notification(text=str(result))
 nm.sendMessage()

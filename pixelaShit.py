@@ -71,7 +71,7 @@ def sendData(data):
         tmep = pixel.json()
         worked = tmep.get("isRejected")
 
-    if pixel.text == 200:
+    if pixel.status_code == 200:
         return("Pixel was added successfully")
     else:
         print(pixel.text)
